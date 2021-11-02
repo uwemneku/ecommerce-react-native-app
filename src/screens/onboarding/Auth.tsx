@@ -38,7 +38,7 @@ const Auth = () => {
                 Welcome{`\n`}back
             </AppText>
             <Animated.View style={[styles.bottomSheet, bottomSheetAnimation]}>
-                <ScrollView showsVerticalScrollIndicator={false}>
+                <ScrollView showsVerticalScrollIndicator={false} keyboardShouldPersistTaps='handled'>
                     <AppText size='medium' weight='bold'>
                         Login
                     </AppText>
