@@ -1,15 +1,27 @@
+import { useTheme } from '@react-navigation/native';
 import React, { FC } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import AppText from './AppText'
 
-interface Props{
+interface Props {
     color?: 'white' | 'primary' | 'secondary' | 'black'
     onPress: () => void
 }
-const AppButton:FC<Props> = ({color='white', children, onPress}) => {
+const AppButton: FC<Props> = ({ color = 'white', children, onPress }) => {
+    const { colors } = useTheme();
+
+    const backgroundColor =
+        color === 'primary'   ? colors.primary :
+        color === 'secondary' ? colors.card :
+        color === 'black'     ? 'black' :
+                                'white'         // color === 'white'
+
+    const textColor = color === 'white' ? colors.primary : 'white'
+        
+
     return (
-        <TouchableOpacity onPress={onPress}  style={[styles.container, {backgroundColor:color}]} activeOpacity={0.8}>
-            <AppText align='center' weight='bold' size='medium'>{children}</AppText>
+        <TouchableOpacity onPress={onPress} style={[styles.container, { backgroundColor}]} activeOpacity={0.8}>
+            <AppText align='center' weight='bold' size='medium' color={textColor} >{children}</AppText>
         </TouchableOpacity>
     )
 }
@@ -17,10 +29,10 @@ const AppButton:FC<Props> = ({color='white', children, onPress}) => {
 export default AppButton
 
 const styles = StyleSheet.create({
-    container:{
-        alignSelf:'center',
+    container: {
+        alignSelf: 'center',
         borderRadius: 10,
-        paddingHorizontal:10,
+        paddingHorizontal: 10,
         paddingVertical: 20,
         width: '70%'
     }

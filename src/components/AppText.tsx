@@ -8,7 +8,7 @@ interface Props{
     align? : TextStyle['textAlign']
     style?: StyleProp<TextStyle>
 }
-const AppText:FC<Props> = ({color, weight, size, children, style, align}) => {
+const AppText:FC<Props> = ({color, weight, size='small', children, style, align='left'}) => {
     const fontSize:TextStyle['fontSize'] = 
         size === 'small'  ?  16 :
         size === 'medium' ?  18 :
