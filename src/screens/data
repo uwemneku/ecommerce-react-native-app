@@ -1,0 +1,81 @@
+import { useNavigation } from '@react-navigation/native'
+import React from 'react'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import {SharedElement, SharedElementsComponentConfig} from 'react-navigation-shared-element';
+
+const Main = () => {
+    const navigation = useNavigation()
+    return (
+        <View style={{width:'100%'}} >
+            <TouchableOpacity style={{padding:40}}  onPress={() => navigation.navigate('Second')}>
+                    <Text>Pressable</Text>
+            </TouchableOpacity>
+            <Text>This is the main screen</Text>
+            <SharedElement id="image">
+                    <Image style={{width:'50%', backgroundColor:'red'}} source={require('../assets/onBoarding.png')}   resizeMode='contain' />
+            </SharedElement>
+        </View>
+    )
+}
+export default Main
+
+const styles = StyleSheet.create({
+    circle:{
+        width:50,
+        height:50,
+        borderRadius: 200,
+        backgroundColor:'red',
+        marginTop:100
+    }
+})
+
+Main.navigationOptions = {
+    title: 'Boys will be boys',
+  };
+  
+  // Add the `sharedElements` function to the component, which
+  // should return a list of shared-elements to transition.
+  // The `sharedElements` function is called whenever you navigate
+  // to or from this screen. You can use the provided navigation
+  // states or trigger or disable animations.
+  const config:SharedElementsComponentConfig = (route, otherRoute, showing) => [
+    {id: 'image', animation: 'fade', align:'auto', resize: 'none'},
+    {id: 'text', animation: 'fade'},
+  ];
+  Main.sharedElements = config
+
+  import React from 'react'
+import { Image, StyleSheet, Text, View } from 'react-native'
+import {SharedElement, SharedElementsComponentConfig} from 'react-navigation-shared-element';
+
+const Second = () => {
+    return (
+        <View style={{width:'100%', flex:1}} >
+              <SharedElement id="image"  >
+                  <View>
+                    <Image style={{width:'50%', backgroundColor:'red'}} source={require('../assets/onBoarding.png')}   resizeMode='contain' />
+                    <View style={styles.circle} ></View>
+                  </View>
+              </SharedElement>
+            <Text>skdkdk</Text>
+        </View>
+    )
+}
+
+export default Second
+
+const styles = StyleSheet.create({
+    circle:{
+        width:50,
+        height:50,
+        borderRadius: 200,
+        backgroundColor:'black'
+    }
+})
+
+const config:SharedElementsComponentConfig = (route, otherRoute, showing) => [
+    {id: 'image', animation: 'fade', align:'center-bottom'},
+    {id: 'text', animation: 'fade'},
+  ];
+
+  Second.sharedElements = config

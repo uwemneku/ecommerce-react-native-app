@@ -1,0 +1,1 @@
+export const OnboardingImage = require('./onBoarding.png')

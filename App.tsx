@@ -1,21 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
+import {enableScreens} from 'react-native-screens';
+import Main from './src/screens/Main';
+import Second from './src/screens/Second';
+import { TransitionPresets } from '@react-navigation/stack';
+import OnboardingNavigation from './src/navigation/OnboardingNavigation';
 
-export default function App() {
+enableScreens();
+
+const {Navigator, Screen} = createSharedElementStackNavigator()
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationContainer>
+      <Navigator screenOptions={{headerShown:false}} defaultScreenOptions={{...TransitionPresets.SlideFromRightIOS, headerShown:false}}>
+          <Screen name='Main' component={OnboardingNavigation} />
+          <Screen name='Second' component={Second} />
+      </Navigator>
+    </NavigationContainer>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+export default App
+
+const styles = StyleSheet.create({})
+
+
