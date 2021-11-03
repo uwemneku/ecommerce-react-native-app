@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet } from 'react-native'
 import { DefaultTheme, NavigationContainer, Theme } from '@react-navigation/native'
 import {enableScreens} from 'react-native-screens';
-import RootNavigator from './src/navigation/RootNavigator';
+import AuthNavigator from './src/navigation/AuthNavigator';
 import { Provider } from 'react-redux';
 import { store } from './src/store';
 import {GestureHandlerRootView} from 'react-native-gesture-handler'
@@ -23,7 +23,7 @@ const App = () => {
     <Provider store={store} >
       <GestureHandlerRootView style={{ flex: 1 }}>
         <NavigationContainer theme={MyTheme} >
-          <RootNavigator />
+          <AuthNavigator />
         </NavigationContainer>
       </GestureHandlerRootView>
     </Provider>

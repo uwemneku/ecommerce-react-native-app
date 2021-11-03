@@ -1,12 +1,10 @@
-import { createStackNavigator } from '@react-navigation/stack'
-import React, { useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import React from 'react'
+import { Text, View } from 'react-native'
 import { useAppSelector } from '../hooks/redux'
 import AppNavigator from './DrawerNavigator'
 import OnboardingNavigation from './OnboardingNavigation'
 
-const RootNavigator = () => {
+const AuthNavigator = () => {
     const {isLoggedIn} = useAppSelector(state => state.authState)
 
     
@@ -23,5 +21,5 @@ const RootNavigator = () => {
     )
 }
 
-export default RootNavigator
+export default AuthNavigator
 

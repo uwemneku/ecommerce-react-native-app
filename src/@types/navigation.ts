@@ -24,3 +24,10 @@ export type AppRoutes = {
     checkout: undefined
     history: undefined
 }
+
+export type DrawerRoutes = {
+    "Home": undefined
+    "My orders": undefined
+    "Delivery" : undefined
+    "Settings" : undefined
+}
