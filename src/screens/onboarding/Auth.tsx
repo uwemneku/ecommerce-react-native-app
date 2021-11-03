@@ -7,23 +7,28 @@ import AppText from '../../components/AppText'
 import Input from './components/Input'
 import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient'
-import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated'
+import Animated, { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming} from 'react-native-reanimated'
+import { useAppDispatch } from '../../hooks/redux'
+import { logIn } from '../../store/Slice/authentication'
 
 const Auth = () => {
     const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true)
     const togglePasswordVisibility = () => setSecureTextEntry(!secureTextEntry)
+    const dispatch = useAppDispatch()
     const {height} = useWindowDimensions()
-    const animatedValue = useSharedValue<number>(height)
+    const animatedValue = useSharedValue<number>(height/2)
 
     const bottomSheetAnimation = useAnimatedStyle(()=>({
-        transform: [{translateY: withTiming(animatedValue.value, {duration: 250, easing: Easing.ease})}]
+        transform: [{translateY: withSpring(animatedValue.value, {overshootClamping:true})}]
     }))
 
-    useFocusEffect(() => {animatedValue.value = 0})
-
     useEffect(() => {
-        
+        animatedValue.value = 0
     }, [])
+
+    const handleLogIn = () => {
+        dispatch(logIn())
+    }
 
     const { colors } = useTheme();
     return (
@@ -67,7 +72,7 @@ const Auth = () => {
                         </Pressable>
                     </View>
                     <View style={{marginVertical:40}}>
-                        <AppButton onPress={() => { }} color='primary'>
+                        <AppButton onPress={handleLogIn} color='primary'>
                             Login
                         </AppButton>
                         <AppText size='small' color={colors.primary} weight='bold' style={{ alignSelf: 'center', marginVertical:10}}>
