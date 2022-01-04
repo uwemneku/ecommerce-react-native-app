@@ -10,7 +10,17 @@
 <br />
 <br />
 <br />
-    <h2>Tools</h2>
+
+<!-- --------------Features and Todo's------------ -->
+<h2>Features and Todo</h2>
+- [x] Custom animation when drawer opens
+
+
+<br/>
+<br/>
+<br/>
+<!-- --------------Tools------------ -->
+<h2>Tools</h2>
 <table id="table" >
 <tr>
 <td>Animation</td>
