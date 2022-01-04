@@ -28,7 +28,17 @@ const AppText: FC<Props> = ({
   const { primary } = useTheme().colors;
 
   const fontSize: TextStyle["fontSize"] =
-    size === "small" ? 16 : size === "medium" ? 18 : size === "large" ? 24 : 40;
+    size === "small"
+      ? 16
+      : size === "medium"
+      ? 18
+      : size === "large"
+      ? 24
+      : size === "extraLarge"
+      ? 40
+      : typeof size === "number"
+      ? size
+      : 24;
 
   const fontWeight: TextStyle["fontWeight"] =
     weight === "light"

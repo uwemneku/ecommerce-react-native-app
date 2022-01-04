@@ -1,5 +1,5 @@
 import { useFocusEffect, useTheme } from "@react-navigation/native";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   Button,
   Pressable,
@@ -42,9 +42,11 @@ const Auth = () => {
     ],
   }));
 
-  useEffect(() => {
-    animatedValue.value = 0;
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      animatedValue.value = withTiming(0, { duration: 500 });
+    }, [])
+  );
 
   const handleLogIn = () => {
     dispatch(logIn());
@@ -59,12 +61,7 @@ const Auth = () => {
       />
       <View style={[styles.rings, { top: 200, left: 200 }]} />
       <View style={[styles.rings, { top: 10, left: 50 }]} />
-      <AppText
-        color="white"
-        weight="bold"
-        size="extraLarge"
-        style={{ padding: 20 }}
-      >
+      <AppText color="white" weight="bold" size={60} style={{ padding: 20 }}>
         Welcome{`\n`}back
       </AppText>
       <Animated.View style={[styles.bottomSheet, bottomSheetAnimation]}>

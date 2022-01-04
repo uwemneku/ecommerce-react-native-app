@@ -14,12 +14,7 @@ const Splash = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <AppText
-          color="white"
-          weight="bold"
-          size="extraLarge"
-          style={{ padding: 20 }}
-        >
+        <AppText color="white" weight="bold" size={60} style={{ padding: 20 }}>
           Find your{`\n`}Gadget
         </AppText>
         <Image
@@ -42,6 +37,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#5956E9",
+    padding: 10,
+    paddingTop: 20,
   },
   image: {
     width: "100%",
