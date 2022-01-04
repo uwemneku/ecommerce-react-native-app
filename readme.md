@@ -13,7 +13,17 @@
 
 <!-- --------------Features and Todo's------------ -->
 <h2>Features and Todo</h2>
-<input type="checkbox" disabled checked /> <a href="./src/navigation/BottomTabNavigator.tsx">Custom Screen animations </a> when drawer is opened 
+<input type="checkbox" disabled checked /> <a href="./src/navigation/BottomTabNavigator.tsx">Custom Screen animations </a> when drawer is opened. 
+<br /> 
+<input type="checkbox" disabled checked /> Custom  <a href="./src/navigation/componets/DrawerContent.tsx">drawer component</a> for drawer navigator
+<br/>
+<input type="checkbox" disabled /> Add lottie animation for when a product is liked and added to cart
+<br/>
+<input type="checkbox" disabled /> Finish profile Screen
+<br />
+<input type="checkbox" disabled /> Finish cart Screen
+<br />
+<input type="checkbox" disabled /> Add firebase for authentication
 
 
 <br/>
@@ -36,3 +46,47 @@
 </tr>
 </table>
 
+<br/>
+<br/>
+<br/>
+
+<h2>Contributing</h2>
+Contributions are always welcome! 🙂
+Have a look  at the "features and todo" section
+
+<br/>
+<br/>
+<br/>
+
+<!-- GETTING STARTED -->
+## Getting Started
+Get a local copy up and running.
+
+### Prerequisites
+<p>
+Make sure you have <a href="https://reactnative.dev/docs/environment-setup"> react native development environment</a> set up in your system 
+
+Install expo-cli
+```sh
+    npm install -g expo-cli
+```
+</a>
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/uwemneku/ecommerce-react-native-app.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+   ```sh
+   yarn
+   ```
+
+3. Start the App on expo
+   ```sh
+   expo start
+   ```
