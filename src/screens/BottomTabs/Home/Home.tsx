@@ -33,7 +33,7 @@ const Home = () => {
   useEffect(() => {}, [data]);
 
   const navigation =
-    useNavigation<BottomTabNavigationProp<BottomTabRoute, "home">>();
+    useNavigation<BottomTabNavigationProp<BottomTabRoute, "Home">>();
 
   //@ts-ignore
   const toggleDrawer = () => navigation.toggleDrawer();

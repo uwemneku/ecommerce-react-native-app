@@ -11,7 +11,7 @@ import { hideTabBar, showTabBar } from "../../store/features/UI";
 
 const Product = () => {
   const navigation =
-    useNavigation<BottomTabNavigationProp<BottomTabRoute, "home">>();
+    useNavigation<BottomTabNavigationProp<BottomTabRoute, "Home">>();
   const dispatch = useAppDispatch();
   //@ts-ignore
   const toggleDrawer = () => navigation.toggleDrawer();

@@ -69,7 +69,7 @@ const IconColor = (focused: Boolean) =>
   focused ? "rgba(89, 86, 233, 1)" : "black";
 const routes: routeType[] = [
   {
-    route: "home",
+    route: "Home",
     icon: (focused) => (
       <Ionicons
         name={focused ? "home" : "home-outline"}
@@ -79,7 +79,7 @@ const routes: routeType[] = [
     ),
   },
   {
-    route: "favorite",
+    route: "Favorite",
     icon: (focused) => (
       <Ionicons
         name={focused ? "heart" : "heart-outline"}
@@ -89,7 +89,7 @@ const routes: routeType[] = [
     ),
   },
   {
-    route: "profile",
+    route: "Profile",
     icon: (focused) => (
       <Ionicons
         name={focused ? "person" : "person-outline"}
@@ -99,7 +99,7 @@ const routes: routeType[] = [
     ),
   },
   {
-    route: "cart",
+    route: "Cart",
     icon: (focused) => (
       <Ionicons
         name={focused ? "cart" : "cart-outline"}

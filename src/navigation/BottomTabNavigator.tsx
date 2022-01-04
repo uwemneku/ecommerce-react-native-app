@@ -61,10 +61,10 @@ const BottomTabNavigator = () => {
             screenOptions={{ headerShown: false }}
             tabBar={(props) => <BottomTabBar {...props} />}
           >
-            <Screen name="home" component={HomeScreen} />
-            <Screen name="favorite" component={BottomTabsFavourite} />
-            <Screen name="profile" component={BottomTabsProfile} />
-            <Screen name="cart" component={BottomTabsCart} />
+            <Screen name="Home" component={HomeScreen} />
+            <Screen name="Favorite" component={BottomTabsFavourite} />
+            <Screen name="Profile" component={BottomTabsProfile} />
+            <Screen name="Cart" component={BottomTabsCart} />
           </Navigator>
         </View>
       </Animated.View>

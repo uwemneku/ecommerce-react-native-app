@@ -13,17 +13,17 @@
 
 <!-- --------------Features and Todo's------------ -->
 <h2>Features and Todo</h2>
-<input type="checkbox" disabled checked /> <a href="./src/navigation/BottomTabNavigator.tsx">Custom Screen animations </a> when drawer is opened. 
+&check; <a href="./src/navigation/BottomTabNavigator.tsx">Custom Screen animations </a> when drawer is opened. 
 <br /> 
-<input type="checkbox" disabled checked /> Custom  <a href="./src/navigation/componets/DrawerContent.tsx">drawer component</a> for drawer navigator
+&check; Custom  <a href="./src/navigation/componets/DrawerContent.tsx">drawer component</a> for drawer navigator
 <br/>
-<input type="checkbox" disabled /> Add lottie animation for when a product is liked and added to cart
+&cross; Add lottie animation for when a product is liked and added to cart
 <br/>
-<input type="checkbox" disabled /> Finish profile Screen
+&cross; Finish profile Screen
 <br />
-<input type="checkbox" disabled /> Finish cart Screen
+&cross; Finish cart Screen
 <br />
-<input type="checkbox" disabled /> Add firebase for authentication
+&cross; Add firebase for authentication
 
 
 <br/>
