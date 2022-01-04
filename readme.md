@@ -13,7 +13,7 @@
 
 <!-- --------------Features and Todo's------------ -->
 <h2>Features and Todo</h2>
-- [x] Custom animation when drawer opens
+<input type="checkbox" disabled checked /> <a href="./src/navigation/BottomTabNavigator.tsx">Custom Screen animations </a> when drawer is opened 
 
 
 <br/>
