@@ -8,26 +8,16 @@ export type onBoardingRoute = {
 }
 
 export type BottomTabRoute = {
-    home: undefined
-    favorite: undefined
-    profile: undefined
-    cart: undefined
-}
-
-export type RootNavigationRoutes = {
-    onboarding: undefined;
-    app: undefined;
-}
-
-export type AppRoutes = {
-    bottomTabs: NavigatorScreenParams<BottomTabRoute>
-    checkout: undefined
-    history: undefined
+    Home: undefined
+    Favorite: undefined
+    Profile: undefined
+    Cart: undefined
 }
 
 export type DrawerRoutes = {
-    "Home": undefined
+    "BottomTab": NavigatorScreenParams<BottomTabRoute>
     "My orders": undefined
     "Delivery" : undefined
     "Settings" : undefined
 }
+
