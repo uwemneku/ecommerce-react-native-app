@@ -9,14 +9,15 @@ import {
 } from "react-native";
 
 type color = "primary" | "secondary" | string;
-interface Props extends Pick<TextProps, "style" | "numberOfLines"> {
+export interface AppTextProps
+  extends Pick<TextProps, "style" | "numberOfLines"> {
   weight?: "light" | "normal" | "bold" | "semiBold" | "extraBold";
   color?: "primary" | "secondary" | string;
   size?: "small" | "medium" | "large" | "extraLarge" | number;
   align?: TextStyle["textAlign"];
   // style?: StyleProp<TextStyle>
 }
-const AppText: FC<Props> = ({
+const AppText: FC<AppTextProps> = ({
   color,
   weight,
   size = "small",

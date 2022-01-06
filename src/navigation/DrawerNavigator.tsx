@@ -5,7 +5,7 @@ import BottomTabNavigator from "./BottomTabNavigator";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import DrawerContent from "./componets/DrawerContent";
 import { useTheme } from "@react-navigation/native";
-import { DeliveryScreen } from "../screens";
+import { DeliveryScreen, ProductScreen } from "../screens";
 const { Navigator, Screen } = createDrawerNavigator<DrawerRoutes>();
 
 const AppNavigator = () => {
@@ -24,6 +24,7 @@ const AppNavigator = () => {
     >
       <Screen name="BottomTab" component={BottomTabNavigator} />
       <Screen name="Delivery" component={DeliveryScreen} />
+      <Screen name="Product" component={ProductScreen} />
     </Navigator>
   );
 };

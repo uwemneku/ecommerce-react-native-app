@@ -24,6 +24,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { useAppDispatch } from "../../hooks/redux";
 import { logIn } from "../../store/features/authentication";
+import { SlideInBottomSheet } from "../../components";
 
 const Auth = () => {
   const [secureTextEntry, setSecureTextEntry] = useState<boolean>(true);
@@ -64,62 +65,55 @@ const Auth = () => {
       <AppText color="white" weight="bold" size={60} style={{ padding: 20 }}>
         Welcome{`\n`}back
       </AppText>
-      <Animated.View style={[styles.bottomSheet, bottomSheetAnimation]}>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          keyboardShouldPersistTaps="handled"
-        >
-          <AppText size="medium" weight="bold">
-            Login
-          </AppText>
-          <View style={{ marginVertical: 20 }}>
-            <Input
-              topIcon={
-                <MaterialCommunityIcons
-                  name="email-multiple-outline"
-                  size={24}
-                  color={colors.text}
-                />
-              }
-              topText="Email"
-              InputProps={{ textContentType: "emailAddress" }}
-            />
-            <Input
-              topText="Password"
-              topIcon={<Feather name="lock" size={24} color={colors.text} />}
-              rightAdornment={
-                <Pressable
-                  onPress={togglePasswordVisibility}
-                  style={{ paddingHorizontal: 10 }}
-                >
-                  <AppText color={colors.primary} weight="bold">
-                    {secureTextEntry ? "Show" : "Hide"}
-                  </AppText>
-                </Pressable>
-              }
-              InputProps={{ secureTextEntry, textContentType: "password" }}
-            />
-            <Pressable style={{ paddingHorizontal: 10 }}>
-              <AppText color={colors.primary} weight="bold">
-                Forgot passcode?
-              </AppText>
-            </Pressable>
-          </View>
-          <View style={{ marginVertical: 40 }}>
-            <AppButton onPress={handleLogIn} color="primary">
-              Login
-            </AppButton>
-            <AppText
-              size="small"
-              color={colors.primary}
-              weight="bold"
-              style={{ alignSelf: "center", marginVertical: 10 }}
-            >
-              Create Account
+      <SlideInBottomSheet>
+        <AppText size="medium" weight="bold">
+          Login
+        </AppText>
+        <View style={{ marginVertical: 20 }}>
+          <Input
+            topIcon={
+              <MaterialCommunityIcons
+                name="email-multiple-outline"
+                size={24}
+                color={colors.text}
+              />
+            }
+            topText="Email"
+            InputProps={{ textContentType: "emailAddress" }}
+          />
+          <Input
+            topText="Password"
+            topIcon={<Feather name="lock" size={24} color={colors.text} />}
+            rightAdornment={
+              <Pressable
+                onPress={togglePasswordVisibility}
+                style={{ paddingHorizontal: 10 }}
+              >
+                <AppText color={colors.primary} weight="bold">
+                  {secureTextEntry ? "Show" : "Hide"}
+                </AppText>
+              </Pressable>
+            }
+            InputProps={{ secureTextEntry, textContentType: "password" }}
+          />
+          <Pressable style={{ paddingHorizontal: 10 }}>
+            <AppText color={colors.primary} weight="bold">
+              Forgot passcode?
             </AppText>
-          </View>
-        </ScrollView>
-      </Animated.View>
+          </Pressable>
+        </View>
+        <View style={{ marginVertical: 40 }}>
+          <AppButton onPress={handleLogIn} color="primary" title="Login" />
+          <AppText
+            size="small"
+            color={colors.primary}
+            weight="bold"
+            style={{ alignSelf: "center", marginVertical: 10 }}
+          >
+            Create Account
+          </AppText>
+        </View>
+      </SlideInBottomSheet>
     </SafeAreaView>
   );
 };

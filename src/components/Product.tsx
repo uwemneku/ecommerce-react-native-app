@@ -1,12 +1,36 @@
-import React, { FC } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import React, { FC, useRef } from "react";
+import {
+  Animated,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import AppText from "./AppText";
-import { Products } from "../@types";
+import { DrawerRoutes, Products } from "../@types";
+import { LikeLottie } from "../../assets";
+import LottieView from "lottie-react-native";
+import { useSharedValue, Value } from "react-native-reanimated";
+import { useNavigation } from "@react-navigation/native";
+import { DrawerNavigationProp } from "@react-navigation/drawer";
+import { LikeButton } from ".";
 
 const Product = (props: Products) => {
   const { category, description, id, image: uri, price, rating, title } = props;
+  const navigation = useNavigation<DrawerNavigationProp<DrawerRoutes>>();
+  const lottieRef = useRef<LottieView>(null);
+  const progress = new Animated.Value(0);
+  const handleLike = () => {
+    lottieRef.current?.play(0, 1000);
+    progress.setValue(1);
+  };
   return (
-    <View style={styles.container}>
+    <Pressable
+      style={styles.container}
+      onPress={() => navigation.navigate("Product", { product: props })}
+    >
       <View style={styles.imageContainer}>
         <Image
           source={{ uri }}
@@ -31,7 +55,8 @@ const Product = (props: Products) => {
           {`$ ${price}`}
         </AppText>
       </View>
-    </View>
+      <LikeButton style={styles.lottieWrapper} />
+    </Pressable>
   );
 };
 
@@ -64,5 +89,9 @@ const styles = StyleSheet.create({
     height: 200,
     padding: 10,
     alignItems: "center",
+  },
+  lottieWrapper: {
+    marginTop: -40,
+    marginLeft: -10,
   },
 });

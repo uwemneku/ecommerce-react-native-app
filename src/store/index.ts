@@ -1,6 +1,6 @@
 import {configureStore, combineReducers} from '@reduxjs/toolkit'
 import authReducer from './features/authentication'
-import uiReducer from './features/UI'
+import uiReducer from './features/products'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import {
 	persistStore,
@@ -22,7 +22,7 @@ const persistConfig = {
 
 const reducer = combineReducers({
     authState: authReducer,
-        uiState: uiReducer ,
+        products: uiReducer ,
 		[storeApi.reducerPath]: storeApi.reducer,
 })
 

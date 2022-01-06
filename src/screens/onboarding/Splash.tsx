@@ -23,9 +23,11 @@ const Splash = () => {
           resizeMethod="resize"
           resizeMode="cover"
         />
-        <AppButton onPress={handleNavigation} color="white">
-          Get started
-        </AppButton>
+        <AppButton
+          onPress={handleNavigation}
+          color="white"
+          title="Get started"
+        />
       </ScrollView>
     </SafeAreaView>
   );

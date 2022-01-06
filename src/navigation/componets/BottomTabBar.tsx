@@ -1,6 +1,6 @@
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import React, { FC, ReactNode, useEffect } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import React, { FC, useEffect } from "react";
+import { Pressable, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { BottomTabRoute } from "../../@types/navigation";
 import { useTheme } from "@react-navigation/native";
@@ -8,32 +8,19 @@ import { useAppSelector } from "../../hooks/redux";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
-  withTiming,
 } from "react-native-reanimated";
 
 const BottomTabBar: FC<BottomTabBarProps> = ({ navigation, insets, state }) => {
-  const { isTabBarVisible } = useAppSelector((state) => state.uiState);
   const animatedMargin = useSharedValue(0);
   const { background } = useTheme().colors;
 
   const handleNavigation = (screen: string) => {
     navigation.navigate(screen);
   };
-  const animatedStyle = useAnimatedStyle(() => ({
-    // marginBottom:withTiming(animatedMargin.value, {duration:250})
-  }));
-
-  useEffect(() => {
-    animatedMargin.value = isTabBarVisible ? 0 : -100;
-  }, [isTabBarVisible]);
 
   return (
     <Animated.View
-      style={[
-        animatedStyle,
-        styles.tabBarContainer,
-        { backgroundColor: background },
-      ]}
+      style={[styles.tabBarContainer, { backgroundColor: background }]}
     >
       {routes.map((item, index) => {
         return (

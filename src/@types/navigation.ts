@@ -1,3 +1,4 @@
+import { Products } from './Products';
 import { NavigatorScreenParams } from '@react-navigation/native';
 
 
@@ -19,5 +20,6 @@ export type DrawerRoutes = {
     "My orders": undefined
     "Delivery" : undefined
     "Settings" : undefined
+    "Product" : {product: Products}
 }
 
